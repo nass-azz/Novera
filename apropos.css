@@ -1,0 +1,638 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.fade-out 
+{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('Images/Arière\ plan.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    animation: enableScroll 8s forwards;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+
+.image-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    margin-left: 12%; /* Décalage vers la gauche */
+}
+
+
+
+/* HEADER - ANIMATION */
+#main-header {
+    position: fixed;
+    z-index: 1000;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideDown 1s ease-out 2.4s forwards;
+}
+.burger-menu {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    width: 25px;
+    height: 15px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: white;
+    box-shadow: 1px 4px 10px rgb(116, 181, 218);
+}
+.burger-menu span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color:#3CB0E5;
+    margin: 4px 0;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: #3CB0E5;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+    
+}
+
+/* Changement de couleur au survol */
+nav a:hover {
+    color: #3CB0E5;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);  /* Ombre portée au survol */
+    transform: scale(1.3);
+    transition: transform 0.3s ease;
+}
+
+/* Accent sur "Accueil" */
+nav a[href="a propos.html"] {
+    color: #3CB0E5;
+}
+
+nav a[href="a propos.html"]::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #3CB0E5;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+
+
+/* Ajout d'un délai progressif pour chaque lien */
+.nav-link:nth-child(1) { animation-delay: 2.5s; }
+.nav-link:nth-child(2) { animation-delay: 3s; }
+.nav-link:nth-child(3) { animation-delay: 3.5s; }
+.nav-link:nth-child(4) { animation-delay: 4s; }
+.nav-link:nth-child(5) { animation-delay: 4.5s; }
+.nav-sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Aligner les éléments verticalement */
+    padding-top: 60px; /* Ajoute un espace en haut pour le bouton de fermeture */
+}
+.nav-sidebar.active {
+    left: 0;
+}
+.nav-sidebar .close-menu {
+    font-size: 30px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: #3CB0E5;
+    border: white;
+    background-color: white;
+    box-shadow: 3px 2px 2px rgb(116, 181, 218);
+
+}
+.nav-sidebar a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    border-bottom: 1px solid white; /* Ajoute une ligne de séparation entre les liens */
+
+}
+
+/* Styles pour mobile */
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    .burger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav-sidebar .close-menu {
+        display: block;
+    }
+
+    .desktop-nav {
+        display: none; /* Cache la navigation de bureau sur mobile */
+    }
+}
+
+/* Styles pour grand écran */
+@media screen and (min-width: 769px) {
+    .nav-sidebar {
+        display: none; /* Cache la navigation mobile sur grand écran */
+    }
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Même espacement que votre CSS original */
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Accent sur "Accueil" */
+nav a[href="a-propos.html"] {
+    color: #3CB0E5;
+}
+
+nav a[href="a-propos.html"]::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #3CB0E5;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+/* Changement de couleur au survol */
+.desktop-nav a:hover {
+    color: #3CB0E5;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);  /* Ombre portée au survol */
+    transform: scale(1.3);
+    transition: transform 0.3s ease;
+}
+
+/* Styles pour mobile */
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        display: block;
+    }
+
+    .nav-sidebar .close-menu {
+        display: block;
+    }
+
+    .desktop-nav {
+        display: none; /* Cache la navigation de bureau sur mobile */
+
+    }
+} 
+
+/* Styles pour grand écran */
+@media screen and (min-width: 769px) {
+    .nav-sidebar {
+        display: none; /* Cache la navigation mobile sur grand écran */
+    }
+}
+
+/* LOGO */
+.Logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: fadeInZoom 1s ease-out 3s forwards;
+}
+
+main {
+    padding: 5% 2%;
+    text-align: center;
+    background-color: white;
+    max-width: 90%;  /* Utilise un pourcentage pour l'adaptabilité */
+    max-height: 90vh; /* 90% de la hauteur de l'écran */
+    margin: 0 auto; /* Centre l'élément */
+    border-radius: 30px; /* Diminue légèrement le rayon des bords */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out 2s forwards;
+    margin-top: 10%;
+}
+
+/* Images dans les blocs de service */
+.services-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Styles pour les blocs de service */
+.service-block {
+    margin-bottom: 20px;
+}
+
+/* Media Queries pour mobile */
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+    .services-list {
+        display: flex;
+        flex-direction: column;
+    }
+    .service-block {
+        margin-bottom: 20px;
+    }
+}
+
+/* Media Queries pour tablettes */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .services-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+/* SECTIONS */
+section {
+    padding: 2rem 1rem;
+    max-width: 100%;
+    margin: auto;
+    text-align: left;
+}
+
+h1 {
+    color: #3CB0E5;
+    text-shadow: black;
+}
+
+h2 {
+    color: #3CB0E5;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    animation: fadeIn 3.5s ease-out forwards;
+    display: inline-block;
+}
+
+p {
+    margin: 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    margin-bottom: 1%
+}
+
+/* Importation de la police */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Réinitialisation générale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style du conteneur principal */
+.about-container {
+    margin: auto;
+    max-width: 900px;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out 2s forwards;
+}
+
+.about-container { animation-delay: 1.5s; }
+
+.about-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.about-container h2 {
+    font-size: 1.8rem;
+    color:#3CB0E5;
+    margin-top: 20px;
+}
+
+.about-container p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    section {
+        padding: 1rem;
+        margin-left: auto;
+        height: auto;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin: 1rem;
+        font-size: 0.9rem;
+    }
+    .about-container p :nth-child(3)
+    {
+        margin-bottom: 70%;
+    }
+
+
+    .about-container {
+        padding: 10px;
+    }
+
+    .about-container h1 {
+        font-size: 2rem;
+    }
+
+    .about-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-container p {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+}
+
+/* Grille des services */
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Centrer les éléments horizontalement */
+    margin: auto ;
+    margin-left: 10%;
+}
+
+/* Bloc service */
+.service-block {
+    background: white;
+    padding: 20px;
+    border-radius: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Centrer le texte à l'intérieur du bloc */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-out forwards;
+    flex: 1 1 calc(33.333% - 40px); /* Ajustement pour centrer les blocs */
+    box-sizing: border-box;
+    max-width: 350px; /* Limite la largeur maximale des blocs */
+    margin: 10px; /* Marge pour espacement */
+}
+
+/* Images dans les blocs de service */
+.service-block img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px; /* Centre l'image et ajoute une marge inférieure */
+}
+
+/* Titres des blocs */
+.service-block h3 {
+    font-size: 1.5rem;
+    color: #3CB0E5;
+    margin-bottom: 10px;
+}
+
+/* Paragraphes des blocs */
+.service-block p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center; /* Centre le texte du paragraphe */
+    text-shadow: 3px 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustements pour les écrans mobiles */
+@media (max-width: 768px) {
+    .service-block {
+        flex: 1 1 100%; /* Un bloc par ligne sur mobile */
+    }
+}
+
+
+
+
+/* FOOTER - ANIMATION (MÊME QUE LE HEADER) */
+#main-footer {
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border-top: 2px solid #3CB0E5;
+    animation: slideUp 1.5s ease-out 5.5s forwards;
+    margin-top: 30px;
+}
+
+
+
+
+
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes moveUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-250px); }
+}
+
+@keyframes slideDown {
+    from { top: -100px; opacity: 0; }
+    to { top: 0; opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { bottom: -100px; opacity: 0; }
+    to { bottom: 0; opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInZoom {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #3CB0E5;
+    color:white ;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+/* Effet au survol */
+#scrollTopBtn:hover 
+{
+    background-color: #2998d0;
+    transform: scale(1.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    color: #3CB0E5;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border-top: 2px solid #3CB0E5;
+}
+
+footer a {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.footer-link:nth-child(1) { animation-delay: 6s; }
+.footer-link:nth-child(2) { animation-delay: 6.2s; }
+.footer-link:nth-child(3) { animation-delay: 6.4s; }
+
+footer img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    filter: invert(0);
+}
+
+footer a:hover img {
+    transform: scale(1.2);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes moveUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-250px); }
+}
+
+@keyframes slideDown {
+    from { top: -100px; opacity: 0; }
+    to { top: 0; opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { bottom: -100px; opacity: 0; }
+    to { bottom: 0; opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInZoom {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}

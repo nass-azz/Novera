@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <link rel="icon" sizes="any" href="favicon-32x32.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+            <link rel="manifest" href="/site.webmanifest">
+            <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+            <link rel="shortcut icon" href="favicon-32x32.png">
+            <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+            <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+            <meta name="msapplication-TileColor" content="#da532c">
+            <meta name="msapplication-config" content="/browserconfig.xml">
+            <meta name="theme-color" content="#ffffff">
+            
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="Novera - Experts en marketing digital aidant les entreprises à se développer en ligne grâce à des solutions innovantes.">
+            <link rel="stylesheet" href="apropos.css">
+            <meta name="keywords" content="marketing digital,Stratégie sur mesure, SEO, solutions digitales, visibilité en ligne, publicité en ligne, stratégie digitale">
+            <title>À propos - Novera</title>
+
+        </head>
+        
+    <body>
+
+    <!-- HEADER -->
+    <header id="main-header">
+        <button class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-sidebar" id="nav-sidebar">
+            <button class="close-menu" onclick="toggleMenu()">✕</button>
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <!-- Suppression du lien et du logo pour mobile -->
+            <a href="a-propos.html" class="nav-link">À propos</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="desktop-nav">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="index.html" class="nav-link logo-link" id="logo-link">
+                <img src="Images/vrailogo.jpeg" class="Logo" alt="Logo Agence Novera">
+            </a>
+            <a href="a-propos.html" class="nav-link">À propos</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+        <main>
+            <div class="about-container">
+                <h1>À propos de Novera</h1>
+                <p>Nous sommes spécialisés dans le marketing digital pour aider les entreprises à se développer en ligne grâce à des solutions innovantes.</p>
+                
+                <h2>Notre Mission</h2>
+                <p>Notre mission est d'accompagner nos clients dans leur transformation numérique en leur offrant des services personnalisés qui répondent à leurs besoins spécifiques.</p>
+                
+                <h2>Notre Équipe</h2>
+                <p>Notre équipe est composée de professionnels passionnés par le marketing digital et prêts à relever tous les défis pour garantir la réussite de nos clients.</p>
+            </div>
+        </main>
+        <section id="features" class="services-container">
+                <h2>Pourquoi choisir Novera ?</h2>
+                <div class="services-list">
+                    <div class="service-block Strat">
+                        
+                        <img src="Images/stratégie-removebg-preview.png" alt="Stratégie">
+                        <h3>Stratégie sur mesure</h3>
+                        <p>Chaque client bénéficie d'une solution adaptée à ses besoins.</p>
+                    </div>
+                    <div class="service-block creativite">
+                        
+                        <img src="Images/créative-removebg-preview.png" alt="Créativité">
+                        <h3>Créativité unique</h3>
+                        <p>Nous apportons des idées originales pour mettre en avant votre marque.</p>
+                    </div>
+                    <div class="service-block service-client">
+                        
+                        <img src="Images/support_client_-removebg-preview.png" alt="Service Client">
+                        <h3>Support client 24/7</h3>
+                        <p>Notre équipe est disponible à tout moment pour vous accompagner.</p>
+                    </div>
+                </div>
+        </section>
+        
+
+        
+        <button id="scrollTopBtn">↑</button>
+        <!-- Footer -->
+        <footer>
+            <a href="https://www.instagram.com">
+                <img src="Images/icons8-instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com">
+                <img src="Images/icons8-facebook.svg" alt="Facebook">
+            </a>
+            <a href="https://x.com">
+                <img src="Images/icons8-x.svg" alt="Twitter">
+            </a>
+        </footer>
+        <!-- SCRIPT D'ANIMATION -->
+        <script>
+            function toggleMenu() {
+                const navSidebar = document.getElementById('nav-sidebar');
+                navSidebar.classList.toggle('active');
+            }
+
+                
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return rect.top < window.innerHeight && rect.bottom >= 0;
+        }
+
+        function checkSections() {
+            const sections = document.querySelectorAll('.section-hidden');
+            sections.forEach(section => {
+                if (isElementInViewport(section)) {
+                    section.classList.add('section-visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkSections);
+        window.addEventListener('load', checkSections);
+        checkSections();
+        document.addEventListener("DOMContentLoaded", function () {
+            document.body.classList.add("loaded"); // Applique l'effet d'entrée
+
+            // Ajoute un effet de transition au clic sur un lien
+            document.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    if (link.getAttribute("href").includes(".html")) { // Vérifie que c'est bien un lien interne
+                        e.preventDefault(); // Empêche la navigation immédiate
+                        document.body.classList.add("fade-out"); // Déclenche l'effet de sortie
+                        setTimeout(() => {
+                            window.location.href = link.href; // Change la page après la transition
+                        }, 500); // Attendre la durée de l'animation (0.5s)
+                    }
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+            window.addEventListener("scroll", function () {
+                const scrollPosition = window.scrollY + window.innerHeight;
+                const pageHeight = document.documentElement.scrollHeight;
+
+                // Affiche le bouton uniquement lorsque l'utilisateur atteint les 90% de la page
+                if (scrollPosition >= pageHeight * 0.9) {
+                    scrollTopBtn.classList.add("visible");
+                } else {
+                    scrollTopBtn.classList.remove("visible");
+                }
+            });
+
+            scrollTopBtn.addEventListener("click", function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            document.body.classList.add("loaded"); // Applique l'effet d'entrée
+
+            // Ajoute un effet de transition au clic sur un lien
+            document.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    if (link.getAttribute("href").includes(".html")) { // Vérifie que c'est bien un lien interne
+                        e.preventDefault(); // Empêche la navigation immédiate
+                        document.body.classList.add("fade-out"); // Déclenche l'effet de sortie
+                        setTimeout(() => {
+                            window.location.href = link.href; // Change la page après la transition
+                        }, 500); // Attendre la durée de l'animation (0.5s)
+                    }
+                });
+            });
+        });
+        </script>
+
+
+    </body>
+</html>

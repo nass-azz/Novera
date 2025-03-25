@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" sizes="any" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="favicon-32x32.png">
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <title>Contactez-nous | Novera</title>
+    <meta name="keywords" content="Novera, marketing digital, SEO, solutions digitales, visibilité en ligne,
+    conrtact Novera,novera,NOVERA,Novera Marketing, Novera web site , Novera site web,novera site internet contact , 
+    novera clermont ferrand , clermont marketing , publicité en ligne, stratégie digitale">
+    <meta name="description" content="Novera propose des solutions digitales sur mesure pour améliorer la visibilité
+     et la performance de votre entreprise. Offrez à votre commerce une vitrine digitale moderne.">
+</head>
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <button class="burger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-sidebar" id="nav-sidebar">
+            <button class="close-menu" onclick="toggleMenu()">✕</button>
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="a-propos.html" class="nav-link">À propos</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="desktop-nav">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="index.html" class="nav-link logo-link" id="logo-link">
+                <img src="Images/vrailogo.jpeg" class="Logo" alt="Logo Agence Novera">
+            </a>
+            <a href="a-propos.html" class="nav-link">À propos</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Section principale -->
+    <main>
+        <h1>Contactez-Nous</h1>
+        <p>Vous avez des questions ou souhaitez discuter de vos projets ? N'hésitez pas à nous contacter.</p>
+
+        <div class="contact-form">
+            <form id="contactForm">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Envoyer</button>
+            </form>
+            <div id="notification" style="display: none; color: #3CB0E5; margin-top : 5%; ">Votre message a été envoyé avec succès !</div>
+        </div>
+    </main>
+    <!-- Section Carte de Visite -->
+    <section class="business-card">
+        <div class="card-container">
+            <img src="Images/Business card 3 (1).png" alt="Carte de visite" class="business-card-image" id="businessCard">
+        </div>
+    </section>
+
+    <button id="scrollTopBtn">↑</button>
+
+    <!-- Footer -->
+    <footer>
+        <a href="https://www.instagram.com/">
+            <img src="Images/icons8-instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/">
+            <img src="Images/icons8-facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://x.com/">
+            <img src="Images/icons8-x.svg" alt="Twitter">
+        </a>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche l'envoi par défaut du formulaire
+
+            const formData = new FormData(this);
+
+            fetch('envoyer.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('notification').style.display = 'block';
+                // Optionnellement, réinitialiser le formulaire
+                document.getElementById('contactForm').reset();
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+            });
+        });
+
+        function toggleMenu() {
+            const navSidebar = document.getElementById('nav-sidebar');
+            navSidebar.classList.toggle('active');
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const image = document.getElementById('businessCard');
+            document.addEventListener('mousemove', function(e) {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                const rotateY = (mouseX / width * -60) + 30; // Calcul de la rotation sur l'axe Y
+                const shadowX = (mouseX - width / 2) / width * 40;
+                const shadowY = (mouseY - height / 2) / height * 40;
+                image.style.transform = `rotateY(${rotateY}deg)`;
+                image.style.boxShadow = `${shadowX}px ${shadowY}px 20px rgba(0, 0, 0, 0.3)`;
+            });
+
+            const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+            window.addEventListener("scroll", function () {
+                const scrollPosition = window.scrollY + window.innerHeight;
+                const pageHeight = document.documentElement.scrollHeight;
+
+                // Affiche le bouton uniquement lorsque l'utilisateur atteint les 90% de la page
+                if (scrollPosition >= pageHeight * 0.9) {
+                    scrollTopBtn.classList.add("visible");
+                } else {
+                    scrollTopBtn.classList.remove("visible");
+                }
+            });
+
+            scrollTopBtn.addEventListener("click", function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+
+            document.body.classList.add("loaded"); // Applique l'effet d'entrée
+
+            // Ajoute un effet de transition au clic sur un lien
+            document.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    if (link.getAttribute("href").includes(".html")) { // Vérifie que c'est bien un lien interne
+                        e.preventDefault(); // Empêche la navigation immédiate
+                        document.body.classList.add("fade-out"); // Déclenche l'effet de sortie
+                        setTimeout(() => {
+                            window.location.href = link.href; // Change la page après la transition
+                        }, 500); // Attendre la durée de l'animation (0.5s)
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
