@@ -1,166 +1,96 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="canonical" href="https://medianovera.fr/" />
-    <link rel="icon" sizes="any" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="24x24" href="/android-chrome-24x24.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="favicon-32x32.png">
-    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
-    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="accueil.css">
-    <title>Novera - Marketing Digital | Solutions Digitales Sur Mesure pour Votre Entreprise</title>
-    <meta name="description" content="Novera propose des solutions digitales sur mesure pour améliorer la visibilité et la performance de votre entreprise. Offrez à votre commerce une vitrine digitale moderne.">
-    <meta name="keywords" content="Novera, marketing digital, SEO, solutions digitales, visibilité en ligne, publicité en ligne, stratégie digitale">
-    
-</head>
-
-    <!-- SECTION INTRO AVEC ANIMATION -->
-    <div class="image-wrapper">
-        <h2 id="welcome-text">Bienvenue chez Novera, experts en marketing digital pour votre entreprise</h2>
-        <h1 class="intro-text">Offrez à votre commerce une vitrine digitale à la hauteur de votre prestige</h1>
-        <h2 class="intro-text2">Créons ensemble des solutions digitales sur mesure pour votre succès</h2>
-    </div>
-
-    <!-- HEADER -->
-    <header id="main-header">
-        <button class="burger-menu" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav class="nav-sidebar" id="nav-sidebar">
-            <button class="close-menu" onclick="toggleMenu()">x</button>
-            <a href="index.html" class="nav-link">Accueil</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="a-propos.html" class="nav-link">À propos</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </nav>
-        <div class="desktop-nav">
-            <a href="index.html" class="nav-link">Accueil</a>
-            <a href="services.html" class="nav-link">Services</a>
-            <a href="index.html" class="nav-link logo-link" id="logo-link">
-                <img src="Images/vrailogo.jpeg" class="Logo" alt="Logo Agence Novera">
-            </a>
-            <a href="a-propos.html" class="nav-link">À propos</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-    </header>
-
-    <!-- SECTION APPEL À L'ACTION -->
-    <section id="cta-section" class="section-hidden">
-        <h2>Prêt à booster votre visibilité ?</h2>
-        <p>Contactez-nous dès aujourd’hui et démarquez-vous de la concurrence.</p>
-        <a href="contact.html" class="cta-button">Nous Contacter</a>
-    </section>
-
-    <!-- SECTION AVIS CLIENTS -->
-    <section id="testimonials" class="section-hidden">
-        <h2>Ce que disent nos clients</h2>
-        <div class="testimonials-container">
-            <div class="testimonial">
-                <div class="testimonial-header">
-                    <img src="Images/ppdefault.png" alt="Photo de profil de Marie" class="testimonial-avatar" loading="lazy">
-                    <span class="testimonial-name">Marie Dubois</span>
-                </div>
-                <p>Novera nous a permis de tripler nos ventes grâce à leur stratégie digitale.</p>
-            </div>
-            <div class="testimonial">
-                <div class="testimonial-header">
-                    <img src="Images/ppdefault.png" alt="Photo de profil d'Ahmed" class="testimonial-avatar" loading="lazy">
-                    <span class="testimonial-name">Ahmed Bensalem</span>
-                </div>
-                <p>Leur gestion de nos réseaux sociaux a complètement transformé notre image.</p>
-            </div>
-            <div class="testimonial">
-                <div class="testimonial-header">
-                    <img src="Images/ppdefault.png" alt="Photo de profil de Julien" class="testimonial-avatar" loading="lazy">
-                    <span class="testimonial-name">Julien Lefevre</span>
-                </div>
-                <p>L'équipe de Novera a su comprendre nos besoins et nous a proposé des solutions efficaces qui ont amélioré notre visibilité en ligne. Merci à toute l'équipe !</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="main-footer">
-        <a href="https://www.instagram.com/" class="footer-link">
-            <img src="Images/icons8-instagram.svg" alt="Instagram">
-        </a>
-        <a href="https://www.facebook.com/" class="footer-link">
-            <img src="Images/icons8-facebook.svg" alt="Facebook">
-        </a>
-        <a href="https://x.com/" class="footer-link">
-            <img src="Images/icons8-x.svg" alt="Twitter">
-        </a>
-    </footer>
-    
-    <!-- Bouton Retour en haut -->
-    <button id="scrollTopBtn">↑</button>
-
-    <!-- SCRIPT -->
-    <script>
-        function toggleMenu() {
-            const navSidebar = document.getElementById('nav-sidebar');
-            navSidebar.classList.toggle('active');
+    <title>Site en Maintenance</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
         }
 
-        function checkSections() {
-            document.querySelectorAll('.section-hidden').forEach(section => {
-                if (section.getBoundingClientRect().top < window.innerHeight) {
-                    section.classList.add('section-visible');
-                }
-            });
+        .container {
+            max-width: 90%; /* Utilisation d'une largeur relative */
+            width: 600px; /* Largeur maximale pour les écrans larges */
+            margin: auto;
         }
 
-        window.addEventListener('scroll', checkSections);
-        window.addEventListener('load', checkSections);
+        h1 {
+            font-size: 2.5em; /* Taille de police fluide */
+            color: #3CB0E5;
+            margin-bottom: 20px;
+        }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            document.body.classList.add("loaded");
+        p {
+            font-size: 1.2em; /* Taille de police adaptée */
+            margin-top: 10px;
+            line-height: 1.6; /* Meilleure lisibilité */
+        }
 
-            document.querySelectorAll("a").forEach(link => {
-                if (link.getAttribute("href") && link.getAttribute("href").includes(".html")) {
-                    link.addEventListener("click", function (e) {
-                        e.preventDefault();
-                        document.body.classList.add("fade-out");
-                        setTimeout(() => window.location.href = link.href, 500);
-                    });
-                }
-            });
+        .gear {
+            font-size: 50px;
+            animation: spin 2s linear infinite;
+            display: inline-block;
+        }
 
-            const scrollTopBtn = document.getElementById("scrollTopBtn");
-            window.addEventListener("scroll", function () {
-                scrollTopBtn.classList.toggle("visible", window.scrollY + window.innerHeight >= document.documentElement.scrollHeight * 0.9);
-            });
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-            scrollTopBtn.addEventListener("click", function () {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
 
-            function disableLogoLink() {
-                const logoLink = document.getElementById('logo-link');
-                if (window.innerWidth <= 768) {
-                    logoLink.removeAttribute('href');
-                } else {
-                    logoLink.setAttribute('href', 'index.html');
-                }
+        /* Media queries pour petits écrans */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Réduction de la taille pour petits écrans */
             }
 
-            window.addEventListener('resize', disableLogoLink);
-            disableLogoLink();
-        });
-    </script>
+            p {
+                font-size: 1em; /* Ajustement de la taille du texte */
+                margin-top: 8px;
+            }
+
+            .gear {
+                font-size: 40px; /* Réduction de l'icône pour petits écrans */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em; /* Plus petit pour très petits écrans */
+                margin-bottom: 15px;
+            }
+
+            p {
+                font-size: 0.9em; /* Texte encore plus compact */
+                line-height: 1.4; /* Réduction de l'espacement entre les lignes */
+            }
+
+            .gear {
+                font-size: 35px; /* Taille réduite encore davantage */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="gear">⚙️</div>
+        <h1>Nous revenons bientôt !</h1>
+        <p>Notre site est actuellement en maintenance. Nous travaillons pour vous offrir une meilleure expérience.</p>
+        <p>Merci de votre patience.</p>
+        <div class="footer">© 2025 - Tous droits réservés</div>
+    </div>
 
 </body>
 </html>
